@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="movie-details-container">
+    @if(selectedMovie){
+        <div class="movie-info">
+            <h1 class="movie-title">{{selectedMovie.name}}</h1>
+            <div class="movie-meta">
+                <p><strong>Duración:</strong> {{selectedMovie.duration}} minutos</p>
+                <p><strong>Director:</strong> {{selectedMovie.director}}</p>
+            </div>
+            <div class="movie-description">
+                <p>Una película dirigida por {{selectedMovie.director}} con una duración de {{selectedMovie.duration}} minutos.</p>
+            </div>
+        </div>
+    }@else {
+        <div class="movie-info">
+            <h1 class="movie-title">Película no encontrada</h1>
+            <p class="movie-description">No existe ninguna película con ese título</p>
+        </div>
+    }
+</div>
+

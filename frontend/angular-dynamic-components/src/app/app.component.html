@@ -1,0 +1,14 @@
+<header>
+  <button (click)="createComponent()">Create component</button>
+  <button (click)="removeAllComponents()" class="secondary">
+    Remove all components
+  </button>
+</header>
+
+<main>
+  <ng-container #container />
+
+  <ng-template #content>
+    <p>Hi i'm the dynamic content</p>
+  </ng-template>
+</main>

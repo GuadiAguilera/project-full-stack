@@ -1,0 +1,87 @@
+p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+}
+
+.movie-list {
+    margin: 30px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .link{
+        color:black;
+        text-decoration: none;
+    }
+    
+    
+    .movie-item {
+        padding: 20px;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        align-items: center;
+        
+        &:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        h2 {
+            color: #007bff;
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            margin: 5px 0;
+            color: #6c757d;
+            font-size: 16px;
+            font-weight: 400;
+            
+            &:first-of-type {
+                color: #28a745;
+                font-weight: 500;
+            }
+            
+            &:last-of-type {
+                color: #dc3545;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .movie-list {
+        margin: 15px;
+        
+        .movie-item {
+            padding: 15px;
+        }
+    }
+}
+
+/* Empty state */
+.movie-list:empty::before {
+    content: "No movies available";
+    display: block;
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 40px;
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+}

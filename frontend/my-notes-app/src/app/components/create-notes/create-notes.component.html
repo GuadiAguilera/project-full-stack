@@ -1,0 +1,11 @@
+<form class="note-form" (ngSubmit)="handleSubmit()">
+  <input
+    type="text"
+    class="note-title"
+    placeholder="Nueva tarea"
+    name="new-note"
+    [(ngModel)]="noteTitle"
+  />
+
+  <button class="create-btn">+</button>
+</form>

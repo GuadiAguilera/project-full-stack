@@ -1,0 +1,76 @@
+/* Estilos para movie-details.component.css */
+
+:host {
+    display: block;
+    color: #f5f5f5;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.movie-details-container {
+    max-width: 900px;
+    background: #232323;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.25);
+    padding: 40px 32px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.movie-poster {
+    width: 260px;
+    min-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    object-fit: cover;
+}
+
+.movie-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.movie-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.movie-meta {
+    font-size: 1.1rem;
+    color: #bbbbbb;
+}
+
+.movie-description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+.genre-badge {
+    display: inline-block;
+    background: #353535;
+    color: #ffd700;
+    border-radius: 8px;
+    padding: 4px 12px;
+
+    font-size: 0.95rem;
+
+}
+
+@media (max-width: 700px) {
+    .movie-details-container {
+        flex-direction: column;
+        padding: 24px 10px;
+        gap: 18px;
+    }
+    .movie-poster {
+        width: 100%;
+        max-width: 320px;
+
+        display: block;
+    }
+}

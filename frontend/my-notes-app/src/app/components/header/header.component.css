@@ -1,0 +1,17 @@
+header {
+  background-color: #000022;
+  color: white;
+  text-align: center;
+  padding: 20px;
+
+  .nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 30rem; 
+
+    .link {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
