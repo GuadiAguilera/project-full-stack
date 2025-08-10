@@ -1,11 +1,20 @@
 <form class="note-form" (ngSubmit)="handleSubmit()">
-  <input
-    type="text"
-    class="note-title"
-    placeholder="Nueva tarea"
-    name="new-note"
-    [(ngModel)]="noteTitle"
-  />
+  <div class="form-row">
+    <input
+      type="text"
+      class="note-title"
+      placeholder="Nueva tarea"
+      name="new-note"
+      [(ngModel)]="noteTitle"
+    />
+    <button class="create-btn">+</button>
+  </div>
 
-  <button class="create-btn">+</button>
+  <textarea
+    class="note-content"
+    placeholder="Contenido de la nota"
+    name="note-content"
+    [(ngModel)]="noteContent"
+    rows="4"
+  ></textarea>
 </form>

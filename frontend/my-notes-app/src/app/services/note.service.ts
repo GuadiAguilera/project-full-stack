@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import Note from '../../models/Note';
+import { NoteDTO, NoteUpdateDTO } from '../../models/NoteDTO';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoteService {
-  readonly API_URL = "aaaahttps://my-note-app.free.beeceptor.com/notes";
+  private readonly API_URL = "http://localhost:8080/notes";
   notes: Note[];
 
-  constructor(private http : HttpClient) {
+  constructor(private http: HttpClient) {
     this.notes = [];
   }
 
@@ -17,32 +18,23 @@ export class NoteService {
     return this.http.get<Note[]>(this.API_URL);
   }
 
-  createNote(note: Note){
-    return this.http.post<Note>(this.API_URL, note);
+  // POST /notes - Crear una nueva nota
+  createNote(note: NoteDTO) {
+    const noteDTO: NoteDTO = {
+      title: note.title,
+      content: note.content,
+      completed: false
+    };
+    return this.http.post<Note>(this.API_URL, noteDTO);
   }
 
-  updateTitle(id: string, title: string) {
-    const updatedNote = this.notes.find((note) => note.id === id);
-    if (updatedNote) {
-      updatedNote.title = title;
-      console.log('Título actualizado localmente:', updatedNote);
-    }
+  // PUT /notes/{id} - Marcar nota como completada
+  completedNote(id: number) {
+    return this.http.put(`${this.API_URL}/${id}`, {});
   }
 
-  updateCompleted(id: string) {
-    const updatedNote = this.notes.find((note) => note.id === id);
-    if (!updatedNote) return;
-    updatedNote.completed = !updatedNote.completed;
-    console.log('Estado actualizado localmente:', updatedNote);
+  // PUT /notes - Actualizar nota completa
+  updateNote(noteUpdate: NoteUpdateDTO) {
+    return this.http.put<Note>(this.API_URL, noteUpdate);
   }
-
-  deleteNote(id: string) {
-    this.notes = this.notes.filter((note) => note.id !== id);
-    console.log('Nota eliminada localmente:', id);
-  }
-
-  createId = () => {
-    return Date.now().toString(36) + Math.random().toString(36).slice(2);
-  };
-
 }

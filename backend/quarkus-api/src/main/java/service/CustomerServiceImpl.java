@@ -1,6 +1,8 @@
 package service;
 
 import entity.Customer;
+import entity.dto.CustomerDTO;
+import entity.dto.CustomerMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -16,9 +18,13 @@ public class CustomerServiceImpl implements CustomerService {
     @Inject
     CustomerRepository customerRepository;
 
+    @Inject
+    CustomerMapper customerMapper;
+
     @Override
     @Transactional
-    public Customer save(Customer customer) {
+    public Customer save(CustomerDTO customerDTO) {
+        Customer customer = customerMapper.toEntity(customerDTO);
         customerRepository.persist(customer);
         return customer;
     }

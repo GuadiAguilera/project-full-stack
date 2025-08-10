@@ -1,9 +1,19 @@
 <article class="note-card">
-  <input
-    type="text"
-    class="card-title"
-    [value]="note()?.title"
-    (input)="updateTitle(note()?.id, $event)"
-  />
-  <input type="checkbox" [checked]="note()?.completed" (input)="updateCompleted(note()?.id)" />
+  <div class="card-header">
+    <input
+      type="text"
+      class="card-title"
+      [value]="note()?.title"
+      readonly
+    />
+    <input type="checkbox" [checked]="note()?.completed" (click)="updateCompleted(note()?.id!)" />
+  </div>
+  
+  <textarea
+    class="card-content"
+    [value]="note()?.content || ''"
+    placeholder="Contenido de la nota"
+    rows="3"
+    readonly
+  ></textarea>
 </article>

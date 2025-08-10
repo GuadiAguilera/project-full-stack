@@ -15,15 +15,26 @@ export class NoteCardComponent {
   constructor(public noteService: NoteService) {
   }
 
-  updateTitle(id: string | undefined, event: any) {
-
+  updateCompleted(id: number) {
     if (!id) return;
-    const inputHtml = event.target as HTMLInputElement;
-    this.noteService.updateTitle(id, inputHtml.value);
+    this.noteService.completedNote(id).subscribe({
+      next: () => {
+        this.getNotes();
+      },
+      error: (error) => {
+        console.error(`Error al marcar la nota ${id} como completada:`, error);
+      },
+    });
   }
 
-  updateCompleted(id: string | undefined) {
-    if (!id) return;
-    this.noteService.updateCompleted(id);
+  getNotes() {
+    this.noteService.getNotes().subscribe({
+      next: (data) => {
+        this.noteService.notes = data.reverse();
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }

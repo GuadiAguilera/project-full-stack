@@ -1,13 +1,15 @@
 package controller;
 
 import entity.Customer;
+import entity.dto.CustomerDTO;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import service.serviceInterface.CustomerService;
-
+import jakarta.ws.rs.core.Response;
+import service.CustomerServiceImpl;
 import java.util.List;
+import java.util.Map;
 
 @Path("/api/customers")
 @Produces(MediaType.APPLICATION_JSON)
@@ -16,11 +18,17 @@ import java.util.List;
 public class CustomerController {
 
     @Inject
-    CustomerService customerService;
+    CustomerServiceImpl customerService;
 
     @POST
-    public Customer save(Customer customer){
-        return customerService.save(customer);
+    public Response save(CustomerDTO customerDTO){
+        try {
+            Customer customer = customerService.save(customerDTO);
+            return Response.status(Response.Status.CREATED).entity(customer).build();
+        } catch (Exception e) {
+            String errorMsg = "Error al guardar el cliente: " + e.getMessage();
+            return Response.status(Response.Status.BAD_REQUEST).entity(errorMsg).build();
+        }
     }
 
     @GET
