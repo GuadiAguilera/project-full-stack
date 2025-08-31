@@ -1,0 +1,19 @@
+
+@defer(when isContentReady) {
+  <p>Component</p>
+} @loading (after 100ms; minimum 1s){
+    <p>Loading component, please wait...</p>
+} @placeholder {
+    <div>Setting up the content...</div>
+}@error {
+    <p> Sorry, we couldn't load the component. Please try again later.</p>
+}
+
+
+@defer(when isContentReady) {
+  <app-error-child/>
+} @error {
+    <p> Sorry, we couldn't load the component. Please try again later.</p>
+}
+
+<button (click)="apretame()">apretame</button>

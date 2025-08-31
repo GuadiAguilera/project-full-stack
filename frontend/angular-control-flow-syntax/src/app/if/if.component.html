@@ -1,0 +1,16 @@
+<!-- <div *ngIf="isVisible; else elseBlock">
+  <p>Se ve locura</p>
+</div>
+
+<ng-template #elseBlock>Contenido oculto</ng-template>
+
+<ng-container>Contenido visible</ng-container>  
+TODO ESTO ES VIEJO, SE UTILIZABA EN LAS VERSIONES VIEJAS DE ANGULAR-->
+
+<!-- Control flow syntax NUEVO-->
+
+@if(isVisible){
+  <p>Se ve locura</p>
+}@else{
+  <span>Contenido oculto</span>
+}

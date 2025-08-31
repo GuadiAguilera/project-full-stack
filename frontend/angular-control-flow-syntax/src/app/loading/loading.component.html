@@ -1,0 +1,9 @@
+@defer (when isContentReady) {
+  <p>Large component loaded!</p>
+}@loading(after 2000ms; minimum 2s) {
+    <p>Loading...</p>
+} @placeholder {
+    <div>
+        Setting up the content...
+    </div>
+}

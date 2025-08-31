@@ -1,0 +1,12 @@
+<!-- FORMA VIEJA, le falta el id o identificador del objeto para poder recorrer y obtener el elemento cuando se hace click -->
+<!-- <ul>
+  <li *ngFor="let name of names trackby">{{ name }}</li>
+</ul> -->
+
+<ul>
+    @for(name of names; track name){ 
+        <li>{{ name }}</li>
+    }@empty {
+        <li>No names available</li>
+    }
+</ul>

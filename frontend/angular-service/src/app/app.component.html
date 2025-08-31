@@ -1,0 +1,12 @@
+<!-- @let charactersAsync = charactersAsync$ | async; // para el asincronico -->
+
+<!-- @let charactersLocal = charactersSignals(); para los signals -->
+
+@let charactersLocal = charactersSignals();
+@for(character of charactersLocal; track character.id){
+  <div>
+    <h2>{{character.name}} {{character.lastName}}</h2>
+    <p>Age: {{character.age}}</p>
+  </div>
+}
+<router-outlet></router-outlet>

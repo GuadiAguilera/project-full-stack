@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup()">
+    <app-custom-input [control]="formGroup().controls.name"
+    formControlName="name"/>
+    <app-custom-input [control]="formGroup().controls.value"
+    formControlName="value"/>
+</form>

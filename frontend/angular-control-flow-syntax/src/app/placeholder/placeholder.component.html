@@ -1,0 +1,15 @@
+@defer (when isImageVisible){
+    <img
+    src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2F0aXRvfGVufDB8fDB8fHww"
+    alt="Differed Image"
+    width="400"
+    height="400"
+    style="object-fit: cover;"
+    />
+} @placeholder {
+    <p>Loading image, please wait...</p>
+}
+
+@if (!isImageVisible) {
+    <button (click)="showImage()">Show Image</button>
+}

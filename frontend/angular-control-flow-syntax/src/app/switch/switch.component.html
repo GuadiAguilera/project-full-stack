@@ -1,0 +1,22 @@
+<!-- NGSWITCH COMO SE UTILIZABA ANTES-->
+<!-- <div [ngSwitch]="selectedValue">
+  <p *ngSwitchCase="'option 1'">Option 1</p>
+  <p *ngSwitchCase="'option 2'">Option 2</p>
+  <p *ngSwitchCase="'option 3'">Option 3</p>
+  <p *ngSwitchCase="'option 4'">Option 4</p>
+</div> -->
+
+@switch (selectedValue) {
+    @case ("option 1") {
+        <p>Option 1</p>
+    }
+    @case ("option 2") {
+        <p>Option 2</p>
+    }
+    @case ("option 3") {
+        <p>Option 3</p>
+    }
+    @case ("option 4") {
+        <p>Option 4</p>
+    }
+}
